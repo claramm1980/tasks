@@ -9,6 +9,27 @@ import today_Image from "../../assets/imgs/today.jpg"
 import Task from "../components/Task"
 
 export default class TaskList extends Component {
+    state = {
+        tasks : [{
+            id: Math.random, 
+            description : "Estudar para a prova de DDM1",
+            estimate_at : new Date(),
+            done_at : new Date()
+        },
+        {
+         id: Math.random, 
+         description : "Fazer a prova de DDM1",
+         estimate_at : new Date(),
+         done_at : new Date()
+         },
+        {
+        id: Math.random, 
+        description : "Tarefa 3",
+        estimate_at : new Date(),
+        done_at : new Date()    
+         }]
+    }
+
     render() {
         const today = moment().locale('pt-br').format('ddd, D [de] MMMM')
         return (
@@ -20,15 +41,19 @@ export default class TaskList extends Component {
                     </View>
                 </ImageBackground>
                 <View style={styles.taskList}>
-                    <Task description={"terminar TCC"}
+                <FlatList>
+                data = {this.state.tasks}
+                </FlatList>
+                
+                    {/*<Task description={"terminar TCC"}
                         estimate_at={moment(new Date()).format('DD/MM/YYYY')}
-                        done_at={moment(new Date()).format('DD/MM/YYYY')} />
+                        done_at={moment(new Date())} />
                     <Task description={"apresentar TCC"}
-                        estimate_at={moment(new Date()).add(5, "days").format('DD/MM/YYYY')}
+                        estimate_at={moment(new Date()).add(5, "days")}
                         done_at={null} />
                     <Task description={"Tarefa 3"}
-                        estimate_at={moment(new Date()).add(10, "days").format('DD/MM/YYYY')}
-                        done_at={moment(new Date()).format('DD/MM/YYYY')} />
+                        estimate_at={moment(new Date()).add(10, "days")}
+                        done_at={moment(new Date())} />*/}
                 </View>
             </View>
         )
